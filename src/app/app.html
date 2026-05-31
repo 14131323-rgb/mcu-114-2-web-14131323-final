@@ -3,17 +3,17 @@
     <div class="header-title">電子商城</div>
     <div class="header-menu">
       <a href="#" class="btn-list" (click)="showListView(); $event.preventDefault()">產品清單</a>
-      <div class="cart-container">
+      <div class="cart-container" (click)="showCartView()" style="cursor: pointer">
         <span>購物車</span>
         <div class="cart-badge">1</div>
       </div>
     </div>
   </header>
 
-  @if (!showDetail) {
+  @if (currentView === 'list') {
     <div id="list-view">
       <div class="search-container">
-        <input type="text" class="search-input" placeholder="產品名稱查詢">
+        <input type="text" class="search-input" placeholder="產品名稱查詢" />
         <button class="btn-search">查詢</button>
       </div>
 
@@ -22,10 +22,7 @@
           <div class="image-placeholder">img</div>
           <div class="product-title"><span class="red-text">A</span> 產品</div>
           <div class="product-author">作者 A、作者 B、作者 C</div>
-          <div class="product-meta">
-            <span>博碩文化</span>
-            <span>$1,580.00</span>
-          </div>
+          <div class="product-meta"><span>博碩文化</span><span>$1,580.00</span></div>
           <div class="product-actions">
             <button class="btn-detail" (click)="showDetailView()">明細</button>
             <button class="btn-add-cart">加入購物車</button>
@@ -84,29 +81,70 @@
     </div>
   }
 
-  @if (showDetail) {
+  @if (currentView === 'detail') {
     <div id="detail-view">
       <div class="detail-image">img</div>
-      
       <div class="detail-card">
         <h2 class="detail-title">A 產品</h2>
-        
         <div class="detail-info-table">
           <div class="info-label">作者</div>
           <div class="info-value">作者 A,作者 B,作者 C</div>
-          
           <div class="info-label">公司</div>
           <div class="info-value">博碩文化</div>
-          
           <div class="info-label">價格</div>
           <div class="info-value">$1,580.00 <span class="red-price-text">特價</span></div>
         </div>
-
         <div class="detail-actions">
           <button class="btn-back" (click)="showListView()">返回</button>
           <button class="btn-add-cart">加入購物車</button>
         </div>
       </div>
+    </div>
+  }
+
+  @if (currentView === 'cart') {
+    <div id="cart-view" class="cart-page-container">
+      <div class="checkout-section">
+        <div class="section-title">基本資料</div>
+        <div class="form-grid">
+          <label class="form-label">姓名</label>
+          <div class="input-group">
+            <input type="text" class="form-input" />
+            <span class="error-text">請輸入姓名</span>
+          </div>
+
+          <label class="form-label">地址</label>
+          <div class="input-group">
+            <input type="text" class="form-input" />
+            <span class="error-text">請輸入地址</span>
+          </div>
+
+          <label class="form-label">電話</label>
+          <div class="input-group">
+            <input type="text" class="form-input" />
+            <span class="error-text">請輸入電話</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <div class="section-title">購買項目</div>
+        <table class="cart-table">
+          <tbody>
+            <tr>
+              <td class="col-index">1</td>
+              <td class="col-name">C 產品</td>
+              <td class="col-qty"><input type="number" value="1" class="qty-input" /></td>
+              <td class="col-price">$1,580.00</td>
+              <td class="col-action"><button class="btn-delete">刪除</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="submit-container">
+      <button class="btn-submit-order" disabled>送出訂單 ($1,580.00)</button>
     </div>
   }
 </div>
