@@ -1,0 +1,260 @@
+.main-container {
+    width: 100%;
+    max-width: 1280px;
+    background-color: #ffffff;
+    padding: 0 0 40px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    min-height: 600px;
+}
+
+.header {
+    background-color: #dde3f9;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    color: #2b5beb;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-list {
+    background-color: #c7d2fe;
+    color: #2b5beb;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.cart-badge {
+    background-color: #2563eb;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.search-container {
+    padding: 25px 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    width: 240px;
+    padding: 6px 12px;
+    border: 1px solid #a3a3a3;
+    font-size: 14px;
+    outline: none;
+}
+
+.btn-search {
+    background-color: white;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.product-grid {
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.product-card {
+    border: 1px solid #d4d4d4;
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.image-placeholder {
+    background-color: #e5e5e5;
+    aspect-ratio: 1.2 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a3a3a3;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    user-select: none;
+}
+
+.product-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 6px;
+}
+
+.product-title .red-text {
+    color: #ef4444;
+}
+
+.product-author {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.btn-detail {
+    background-color: #e5e5e5;
+    color: #333;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-add-cart {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.page-item {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-decoration: none;
+    border: 1px solid #2563eb;
+}
+
+.page-item.active { background-color: #2563eb; color: white; }
+.page-item.inactive { background-color: white; color: #2563eb; }
+
+/* 明細頁 */
+#detail-view {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px 30px;
+}
+
+.detail-image {
+    background-color: #e5e5e5;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a3a3a3;
+    font-size: 64px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.detail-card {
+    border: 1px solid #d4d4d4;
+    border-radius: 8px;
+    padding: 25px 30px;
+    width: 450px;
+    background-color: white;
+}
+
+.detail-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.detail-info-table {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    row-gap: 16px;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #000;
+}
+
+.info-value {
+    color: #333;
+}
+
+.info-value .red-price-text {
+    color: #ef4444;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.detail-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-back {
+    background-color: #e5e5e5;
+    color: #333;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
