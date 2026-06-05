@@ -144,7 +144,9 @@
                 <input type="number" [(ngModel)]="quantity" min="0" class="qty-input" />
               </td>
               <td class="col-price">${{ getTotalPriceString() }}</td>
-              <td class="col-action"><button class="btn-delete">刪除</button></td>
+              <td class="col-action">
+                <button class="btn-delete" (click)="deleteProduct()">刪除</button>
+              </td>
             </tr>
           </tbody>
         </table>
