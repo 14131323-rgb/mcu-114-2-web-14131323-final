@@ -140,8 +140,10 @@
             <tr>
               <td class="col-index">1</td>
               <td class="col-name">C 產品</td>
-              <td class="col-qty"><input type="number" value="2" class="qty-input" /></td>
-              <td class="col-price">$1,580.00</td>
+              <td class="col-qty">
+                <input type="number" [(ngModel)]="quantity" min="0" class="qty-input" />
+              </td>
+              <td class="col-price">${{ getTotalPriceString() }}</td>
               <td class="col-action"><button class="btn-delete">刪除</button></td>
             </tr>
           </tbody>
@@ -169,7 +171,7 @@
             : 'not-allowed'
         "
       >
-        送出訂單 ($1,580.00)
+        送出訂單 (${{ getTotalPriceString() }})
       </button>
     </div>
   }
