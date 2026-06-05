@@ -109,20 +109,26 @@
         <div class="form-grid">
           <label class="form-label">姓名</label>
           <div class="input-group">
-            <input type="text" class="form-input" />
-            <span class="error-text">請輸入姓名</span>
+            <input type="text" class="form-input" [(ngModel)]="customerName" />
+            @if (customerName === '') {
+              <span class="error-text">請輸入姓名</span>
+            }
           </div>
 
           <label class="form-label">地址</label>
           <div class="input-group">
-            <input type="text" class="form-input" />
-            <span class="error-text">請輸入地址</span>
+            <input type="text" class="form-input" [(ngModel)]="customerAddress" />
+            @if (customerAddress === '') {
+              <span class="error-text">請輸入地址</span>
+            }
           </div>
 
           <label class="form-label">電話</label>
           <div class="input-group">
-            <input type="text" class="form-input" />
-            <span class="error-text">請輸入電話</span>
+            <input type="text" class="form-input" [(ngModel)]="customerPhone" />
+            @if (customerPhone === '') {
+              <span class="error-text">請輸入電話</span>
+            }
           </div>
         </div>
       </div>
@@ -134,7 +140,7 @@
             <tr>
               <td class="col-index">1</td>
               <td class="col-name">C 產品</td>
-              <td class="col-qty"><input type="number" value="1" class="qty-input" /></td>
+              <td class="col-qty"><input type="number" value="2" class="qty-input" /></td>
               <td class="col-price">$1,580.00</td>
               <td class="col-action"><button class="btn-delete">刪除</button></td>
             </tr>
@@ -144,7 +150,27 @@
     </div>
 
     <div class="submit-container">
-      <button class="btn-submit-order" disabled>送出訂單 ($1,580.00)</button>
+      <button
+        class="btn-submit-order"
+        [disabled]="customerName === '' || customerAddress === '' || customerPhone === ''"
+        [style.background-color]="
+          customerName !== '' && customerAddress !== '' && customerPhone !== ''
+            ? '#2563eb'
+            : '#f5f5f5'
+        "
+        [style.color]="
+          customerName !== '' && customerAddress !== '' && customerPhone !== ''
+            ? '#ffffff'
+            : '#a3a3a3'
+        "
+        [style.cursor]="
+          customerName !== '' && customerAddress !== '' && customerPhone !== ''
+            ? 'pointer'
+            : 'not-allowed'
+        "
+      >
+        送出訂單 ($1,580.00)
+      </button>
     </div>
   }
 </div>
