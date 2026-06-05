@@ -2,8 +2,20 @@
   <header class="header">
     <div class="header-title">電子商城</div>
     <div class="header-menu">
-      <a href="#" class="btn-list" (click)="showListView(); $event.preventDefault()">產品清單</a>
-      <div class="cart-container" (click)="showCartView()" style="cursor: pointer">
+      <a
+        href="#"
+        class="btn-list"
+        [class.active]="currentView === 'list' || currentView === 'detail'"
+        (click)="showListView(); $event.preventDefault()"
+        >產品清單</a
+      >
+
+      <div
+        class="cart-container"
+        [class.active]="currentView === 'cart'"
+        (click)="showCartView()"
+        style="cursor: pointer"
+      >
         <span>購物車</span>
         <div class="cart-badge">1</div>
       </div>
@@ -89,7 +101,7 @@
         <div class="detail-info-table">
           <div class="info-label">作者</div>
           <div class="info-value">作者 A,作者 B,作者 C</div>
-          <div class="info-label">公司</div>
+          <div class="info-label">Square</div>
           <div class="info-value">博碩文化</div>
           <div class="info-label">價格</div>
           <div class="info-value">$1,580.00 <span class="red-price-text">特價</span></div>
