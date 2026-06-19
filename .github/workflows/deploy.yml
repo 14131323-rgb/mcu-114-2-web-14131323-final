@@ -3,7 +3,7 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master # 當你 push 到 main 分支時會自動觸發部署
 
 permissions:
   contents: read
@@ -39,6 +39,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # 這裡會自動指定打包好的靜態網頁路徑 (Angular 預設輸出在 dist 專案資料夾下的 browser 中)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
