@@ -23,7 +23,6 @@ export class AppComponent {
     return qty * this.unitPrice;
   }
 
-  // 2. 轉成帶有千分位和小數點兩位的字串
   getTotalPriceString(): string {
     const total = this.getTotalPrice();
     return total.toLocaleString('en-US', {
