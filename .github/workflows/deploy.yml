@@ -33,16 +33,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ✨ 修正 1：指定 Angular 打包時，直接將檔案吐在 output 資料夾，不產生多餘的主目錄
       - name: Build Angular Application
-        run: npx ng build --configuration production --base-href /mcu-114-2-web-14131323-final/
+        run: npx ng build --configuration production --base-href /mcu-114-2-web-14131323-final/ --output-path=dist/output
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # ✨ 修正 2：直接抓取 output，這樣 index.html 就會完美待在 GitHub Pages 的根目錄，消除 404！
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/mymall/
+          path: dist/output/
 
       - name: Deploy to GitHub Pages
         id: deployment
